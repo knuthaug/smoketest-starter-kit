@@ -17,14 +17,34 @@ public class smokeController {
     @Autowired
     List<Testable> allTests;
 
-	@RequestMapping("/smoketests")
+	@RequestMapping("/smoketests.html")
 	public String runSmoketests(Model uiModel) {
-        Map<String, String> results = new HashMap<String, String>();
-        
-        for(Testable test : allTests ){
-            results.put(test.name(), test.runTest());
-        }
-        uiModel.addAttribute("tests", results);
+        runAllTests(uiModel);
         return "smoketests";
 	}
+
+    @RequestMapping("/smoketests.xml")
+    public String runSmoketestsAsXML(Model uiModel) {
+        runAllTests(uiModel);
+        return "smoketests.xml";
+    }
+
+    private Map<String, String> runAllTests(Model uiModel) {
+        Map<String, String> results = new HashMap<String, String>();
+        int failureCount = 0;
+
+        for(Testable test : allTests ){
+            String status = test.runTest();
+            if(status.equals(Testable.FAIL)) {
+                failureCount++;
+            }
+            results.put(test.name(), status);
+        }
+        uiModel.addAttribute("failureCount", failureCount);
+        uiModel.addAttribute("testCount", results.size());
+        uiModel.addAttribute("tests", results);
+        return results;
+    }
+
+
 }

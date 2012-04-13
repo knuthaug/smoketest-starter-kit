@@ -1,0 +1,10 @@
+<testsuite name="smoketests" failures="${failureCount}" skipped="0" tests="${testCount}" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:jsp="http://java.sun.com/JSP/Page">
+    <jsp:directive.page contentType="text/xml;charset=UTF-8" />
+    <jsp:output omit-xml-declaration="yes" />
+
+        <c:forEach items="${tests}" var="test">
+            <testcase name="${test.key}">
+
+            </testcase>
+        </c:forEach>
+</testsuite>

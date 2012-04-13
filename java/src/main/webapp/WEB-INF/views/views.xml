@@ -13,6 +13,10 @@
     <put-attribute name="body" value="/WEB-INF/views/smoketests.jspx" />
   </definition>
 
+  <definition name="smoketests.xml" extends="blank">
+    <put-attribute name="body" value="/WEB-INF/views/smoketests.xml.jspx" />
+  </definition>
+
   <definition name="dataAccessFailure" extends="public">
     <put-attribute name="body" value="/WEB-INF/views/dataAccessFailure.jspx" />
   </definition>
