@@ -371,3 +371,13 @@ fieldset th {
 	height: 11px;
 	width: 16px;
 }
+
+.FAILED {
+    color: red;
+    font-weight: bold;
+}
+
+.OK {
+    color: green;
+    font-weight: bold;
+}
