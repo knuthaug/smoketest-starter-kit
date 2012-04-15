@@ -9,7 +9,7 @@
     -->
     <context:property-placeholder location="classpath*:META-INF/spring/*.properties"/>
     <!--
-        Turn on AspectJ @Configurable support. As a result, any time you
+        Turn on AspectJ @Configurable support. As a getResult, any time you
         instantiate an object, Spring will attempt to perform dependency
         injection on that object. This occurs for instantiation via the "new"
         keyword, as well as via reflection. This is possible because AspectJ

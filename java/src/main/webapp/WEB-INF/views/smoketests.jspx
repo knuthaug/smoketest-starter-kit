@@ -9,8 +9,13 @@
     <table>
        <c:forEach items="${tests}" var="test">
        <tr>
-           <td>${test.key}</td>
-           <td class="${test.value}">${test.value}</td>
+           <td>
+            ${test.name}
+               <c:if test="${test.result == 'FAILED'}">
+                    <p style="width:400px">${test.stacktrace}</p>
+               </c:if>
+           </td>
+           <td class="${test.result}">${test.result}</td>
        </tr>
         </c:forEach>
     </table>

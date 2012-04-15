@@ -10,13 +10,31 @@ import org.springframework.stereotype.Component;
 @Component
 public class DummySmoketest implements Testable {
 
+    private String stacktrace;
+
     @Override
-    public String runTest() {
+    public void runTest() {
+         throw new RuntimeException("Password file not found");
+    }
+
+    @Override
+    public String getName() {
+        return "Another test";
+    }
+
+    @Override
+    public String getResult() {
         return FAIL;
     }
 
     @Override
-    public String name() {
-        return "Another test";
+    public String getStacktrace() {
+        return stacktrace;
     }
+
+    @Override
+    public void stacktrace(String s) {
+        stacktrace = s;
+    }
+
 }

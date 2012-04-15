@@ -6,9 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import smoketests.demo.tests.Testable;
 
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 
 @Controller
@@ -29,21 +28,26 @@ public class smokeController {
         return "smoketests.xml";
     }
 
-    private Map<String, String> runAllTests(Model uiModel) {
-        Map<String, String> results = new HashMap<String, String>();
+    private void runAllTests(Model uiModel) {
         int failureCount = 0;
 
         for(Testable test : allTests ){
-            String status = test.runTest();
-            if(status.equals(Testable.FAIL)) {
+
+            try {
+                test.runTest();
+            } catch(Exception e) {
+                test.stacktrace(Arrays.toString(e.getStackTrace()));
+            }
+                
+            if(Testable.FAIL.equals(test.getResult())) {
                 failureCount++;
             }
-            results.put(test.name(), status);
+
         }
         uiModel.addAttribute("failureCount", failureCount);
-        uiModel.addAttribute("testCount", results.size());
-        uiModel.addAttribute("tests", results);
-        return results;
+        uiModel.addAttribute("testCount", allTests.size());
+        uiModel.addAttribute("tests", allTests);
+
     }
 
 
