@@ -15,6 +15,7 @@ public class DbSmoketest implements Testable {
     @Override
     public void runTest() {
         //actually run a light query agains the database
+        //throw an exception if something barfs
     }
 
     @Override
@@ -27,13 +28,4 @@ public class DbSmoketest implements Testable {
         return OK;
     }
 
-    @Override
-    public String getStacktrace() {
-        return stacktrace;
-    }
-
-    @Override
-    public void stacktrace(String s) {
-        stacktrace = s;
-    }
 }

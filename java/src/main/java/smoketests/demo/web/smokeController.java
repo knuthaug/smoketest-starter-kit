@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import smoketests.demo.tests.Testable;
 
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -32,13 +31,8 @@ public class smokeController {
         int failureCount = 0;
 
         for(Testable test : allTests ){
+            test.runTest();
 
-            try {
-                test.runTest();
-            } catch(Exception e) {
-                test.stacktrace(Arrays.toString(e.getStackTrace()));
-            }
-                
             if(Testable.FAIL.equals(test.getResult())) {
                 failureCount++;
             }

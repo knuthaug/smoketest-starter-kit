@@ -14,7 +14,7 @@ public class DummySmoketest implements Testable {
 
     @Override
     public void runTest() {
-         throw new RuntimeException("Password file not found");
+         //dummy
     }
 
     @Override
@@ -27,14 +27,5 @@ public class DummySmoketest implements Testable {
         return FAIL;
     }
 
-    @Override
-    public String getStacktrace() {
-        return stacktrace;
-    }
-
-    @Override
-    public void stacktrace(String s) {
-        stacktrace = s;
-    }
 
 }
