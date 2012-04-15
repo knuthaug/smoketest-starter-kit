@@ -12,7 +12,7 @@
            <td>
             ${test.name}
                <c:if test="${test.result == 'FAILED'}">
-                    <p style="width:400px">${test.stacktrace}</p>
+                    <p style="width:400px">${test.stackTrace}</p>
                </c:if>
            </td>
            <td class="${test.result}">${test.result}</td>

@@ -12,6 +12,6 @@ public interface Testable {
     public void runTest();
     public String getName();
     public String getResult();
-    public String getStacktrace();
-    void stacktrace(String s);
+    public String getStackTrace();
+    void setStackTrace(String s);
 }

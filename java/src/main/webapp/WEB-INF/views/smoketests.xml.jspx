@@ -5,7 +5,7 @@
         <c:forEach items="${tests}" var="test">
             <testcase name="${test.name}">
                 <c:if test="${test.result == 'FAILED'}">
-                    <failure message="" type="">${test.stacktrace}</failure>
+                    <failure message="" type="">${test.stackTrace}</failure>
                 </c:if>
             </testcase>
         </c:forEach>

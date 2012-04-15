@@ -36,7 +36,7 @@ public class smokeController {
             try {
                 test.runTest();
             } catch(Exception e) {
-                test.stacktrace(Arrays.toString(e.getStackTrace()));
+                test.setStackTrace(Arrays.toString(e.getStackTrace()));
             }
                 
             if(Testable.FAIL.equals(test.getResult())) {

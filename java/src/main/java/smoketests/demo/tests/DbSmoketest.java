@@ -28,12 +28,12 @@ public class DbSmoketest implements Testable {
     }
 
     @Override
-    public String getStacktrace() {
+    public String getStackTrace() {
         return stacktrace;
     }
 
     @Override
-    public void stacktrace(String s) {
+    public void setStackTrace(String s) {
         stacktrace = s;
     }
 }
