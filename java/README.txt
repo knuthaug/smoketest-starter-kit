@@ -13,3 +13,9 @@ Files:
 
  Other than that the tests themselves and the interface the extends is in the smoketests.demo.tests
  package.
+
+Plumbing:
+ There are to sets of templates for producing html and xml output. To simply work around the 
+ extension model of apache tiles, there are two sets of parent tiles too, namely default.jspx, 
+ used for the html smoketest, wrapping the output in the normal site look&feel, and blank.jspx
+ which is used for smoketests.xml.jspx and creates a simple xml document.
