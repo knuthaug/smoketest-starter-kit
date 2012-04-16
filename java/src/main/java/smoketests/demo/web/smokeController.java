@@ -11,7 +11,7 @@ import java.util.List;
 
 
 @Controller
-public class smokeController {
+public class SmokeController {
 
     @Autowired
     List<Testable> allTests;
