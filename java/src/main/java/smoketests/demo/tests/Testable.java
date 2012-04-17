@@ -9,7 +9,7 @@ public interface Testable {
     String OK = "OK";
     String FAIL = "FAILED";
 
-    public void runTest();
-    public String getName();
-    public String getResult();
+    void runTest();
+    String getName();
+    String getResult();
 }
