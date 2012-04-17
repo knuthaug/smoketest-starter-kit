@@ -9,9 +9,9 @@ public interface Testable {
     String OK = "OK";
     String FAIL = "FAILED";
 
-    public void runTest();
-    public String getName();
-    public String getResult();
-    public String getStackTrace();
+    void runTest();
+    String getName();
+    String getResult();
+    String getStackTrace();
     void setStackTrace(String s);
 }
