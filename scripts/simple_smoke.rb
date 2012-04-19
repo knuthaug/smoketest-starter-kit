@@ -7,19 +7,12 @@ require "celerity"
 class Smoke
 
   def initialize
-    @urls = {
-      "http://www.eiendomsnett.no/" => [:ok],
-      "http://www.ba.no/" => [:ok],
-    }
+    @urls = [ "http://www.eiendomsnett.no/", "http://www.ba.no/" ]
   end
 
+  #run all urls in list
   def run
-    run_all_urls @urls
-  end
-
-  def run_all_urls(set)
-
-    @urls.each do |base_url, methods|
+    @urls.each do |base_url|
       browser = Celerity::Browser.new(:css => true,
                                       :refresh_handler => :threaded,
                                       :javascript_enabled => false)
@@ -35,6 +28,7 @@ class Smoke
     end
   end
 
+  #make browser visit one url and trap error
   def visit_url(browser, url)
     begin
       browser.goto url
