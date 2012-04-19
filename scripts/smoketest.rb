@@ -8,9 +8,7 @@ require 'term/ansicolor'
 # Main class for Smoketest runner
 class Smoke
 
-
   def initialize
-
     @urls = {
       "http://www.eiendomsnett.no/" => [:ok, :no_errors],
       "http://www.ba.no/" => [:ok, :no_errors],
@@ -22,11 +20,10 @@ class Smoke
     end
 
     @opts[:format] = "text" if !@opts[:format_given]
-
   end
 
-  def run
 
+  def run
     i = 0
 
     if(@opts[:format] == "xml")
@@ -38,9 +35,8 @@ class Smoke
     if(@opts[:format] == "xml")
       puts "</testsuites>"
     end
-
-
   end
+
 
   def run_all_urls(set)
 
