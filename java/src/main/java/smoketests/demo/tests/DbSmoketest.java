@@ -14,7 +14,7 @@ public class DbSmoketest implements Testable {
 
     @Override
     public void runTest() {
-        //actually run a light query agains the database
+        //actually run a light query against the database
         //throw an exception if something barfs
     }
 
