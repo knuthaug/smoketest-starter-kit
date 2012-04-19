@@ -14,6 +14,7 @@ class Smoke
     @urls = {
       "http://www.eiendomsnett.no/" => [:ok, :no_errors],
       "http://www.ba.no/" => [:ok, :no_errors],
+      "http://www.vg.no/foo" => [:ok],
     }
 
     @opts = Trollop::options do
@@ -120,10 +121,6 @@ class Smoke::Test
 
   def initialize(url, browser, format)
 
-    @fail_config = {
-      :no_errors => "avisnavn"
-    }
-
     @format = format;
     @url = url
     @browser = browser
@@ -175,16 +172,9 @@ class Smoke::Test
 
       error_string = loop_errors(error_divs)
 
-      if(@url.index(@fail_config[method]))
-        out = @formatter.output(@url, method, " - (method: no_errors)   %4s (error divs found: #{error_divs.length})\n",
-                                :FAIL, error_string, find_time(time))
-        return [out,FAIL]
-      else
-        out = @formatter.output(@url, method, " - (method: no_errors)   %4s (error divs found: #{error_divs.length})\n",
+      out = @formatter.output(@url, method, " - (method: no_errors)   %4s (error divs found: #{error_divs.length})\n",
                                 :WARNING, error_string, find_time(time))
-        return [out, WARNING]
-      end
-
+      return [out, WARNING]
     else
       return [(@formatter.output(@url, method, " - (method: no_errors)   %3s\n", :OK, "", find_time(time))), OK]
     end
