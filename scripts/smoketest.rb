@@ -239,18 +239,11 @@ class Smoke::Formatter::Text
       return sprintf(message, green(status.to_s))
     elsif(status == FAIL)
       out = sprintf(message, red(status.to_s))
-
-      if(!error.nil?)
-        out += error
-      end
-      return out
     elsif(status == WARNING)
       out = sprintf(message, yellow(status.to_s))
-      if(!error.nil?)
-        out += error
-      end
-      return out
     end
+
+    return out
 
   end
 end
