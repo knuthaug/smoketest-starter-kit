@@ -12,7 +12,7 @@ class Smoke
     @urls = {
       "http://www.eiendomsnett.no/" => [:ok, :no_errors],
       "http://www.ba.no/" => [:ok, :no_errors],
-      "http://www.vg.no/sport/" => [:ok],
+      "http://www.vg.no/foo" => [:ok],
     }
 
     @opts = Trollop::options do
