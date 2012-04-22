@@ -130,7 +130,7 @@ class Smoke::Test
     if @browser.page.nil? || @browser.status_code != 200
       out = @formatter.output(@url, OK,
                               " - (method: ok) %15s status was: #{ @browser.page.nil? ? "unknown" : @browser.status_code}\n",
-                              FAIL, "", find_time(time))
+                              FAIL, "status code=#{@browser.status_code}", find_time(time))
       return [out, FAIL]
     else
       return [(@formatter.output(@url, OK, " - (method: ok) %20s\n", OK, "", find_time(time))), OK]
