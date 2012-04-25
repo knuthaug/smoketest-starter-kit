@@ -4,26 +4,24 @@ import org.springframework.stereotype.Component;
 
 /**
  * User: Knut Haugen <knuthaug@gmail.com>
- * 2012-04-13
+ * 2012-04-25
  */
-
 @Component
-public class DbSmoketest implements Testable {
+public class Smoketest2 implements Testable {
 
     @Override
     public void runTest() {
-        //actually run a light query against the database
-        //throw an exception if something barfs
+        //dummy
     }
 
     @Override
     public String getName() {
-        return "Test database connection";
+        return "This test does very important work!";
     }
 
     @Override
     public String getResult() {
         return OK;
     }
-
 }
+

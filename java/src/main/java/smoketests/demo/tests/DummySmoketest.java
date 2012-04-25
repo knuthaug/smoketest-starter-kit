@@ -10,8 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class DummySmoketest implements Testable {
 
-    private String stacktrace;
-
     @Override
     public void runTest() {
          //dummy
@@ -26,6 +24,4 @@ public class DummySmoketest implements Testable {
     public String getResult() {
         return FAIL;
     }
-
-
 }
