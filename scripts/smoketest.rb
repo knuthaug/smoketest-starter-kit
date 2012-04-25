@@ -105,8 +105,6 @@ module Smoke::Constants
   OK = :OK
   FAIL = :FAIL
   WARNING = :WARNING
-  SITE_STAT = :SITE_STAT
-  TNS_STAT = :TNS_STAT
 end
 
 
@@ -235,16 +233,13 @@ class Smoke::Formatter::Text
 
   def output(url, method, message, status, error, time)
 
-    if (status == OK)
-      return sprintf(message, green(status.to_s))
-    elsif(status == FAIL)
-      out = sprintf(message, red(status.to_s))
-    elsif(status == WARNING)
-      out = sprintf(message, yellow(status.to_s))
-    end
+    functions = {
+      OK => Term::ANSIColor.method(:green),
+      FAIL => Term::ANSIColor.method(:red),
+      WARNING => Term::ANSIColor.method(:yellow)
+    }
 
-    return out
-
+    return sprintf(message, functions[status].call((status.to_s)))
   end
 end
 
