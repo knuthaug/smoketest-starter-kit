@@ -1,0 +1,8 @@
+java/.classpath
+java/.idea/
+java/.project
+java/.settings/
+java/demo.iml
+java/log.roo
+java/target/
+ruby/log/
