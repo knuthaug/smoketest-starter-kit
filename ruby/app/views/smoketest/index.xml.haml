@@ -1,0 +1,5 @@
+%testsuite{:name => "smoketests", :failures => @tests.select { |x| x.status == "FAIL" }.count, :tests => @tests.count, :skipped => 0}
+  - @tests.each do |test|
+    %testcase{:name => test.description}
+      - if test.status != "OK"
+        %failure{:message => test.message}

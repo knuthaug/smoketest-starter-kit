@@ -1,0 +1,11 @@
+%h1 Smoketests
+
+%table#tests
+  - @tests.each_with_index do |t, index|
+    %tr
+      %td{:width => "10"}= index + 1
+      %td= t.description
+      - if t.status == "OK"
+        %td.green= t.status
+      - else        
+        %td.red= t.status

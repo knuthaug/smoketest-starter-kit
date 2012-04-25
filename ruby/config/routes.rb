@@ -2,6 +2,7 @@ Smoketest::Application.routes.draw do
   get "smoketest/index"
 
   resources :people
+  match '/smoketest' => 'smoketest#index'
 
   root :to => "home#index"
 
